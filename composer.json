@@ -1,0 +1,13 @@
+{
+    "require": {
+        "lox/pheasant": "dev-master",
+        "latte/latte": "^2.4",
+        "altorouter/altorouter": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\":"app/"
+        }
+    },
+    "minimum-stability":"dev"
+}

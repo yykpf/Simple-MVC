@@ -1,0 +1,41 @@
+{layout '../layouts/app.latte'}
+
+{block content}
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">所有事项</div>
+                <div class="panel-body">
+
+
+                    <form class="form-inline" role="form" action="{url /todo/store}" method="post">
+                        <div class="form-group">
+                            <label for="title" class="sr-only">请输入事项</label>
+                            <input type="input" class="form-control" name="title" id="title" placeholder="请输入事项">
+                        </div>
+                        <button type="submit" class="btn btn-default">新增</button>
+                    </form>
+
+
+                    {foreach $todos as $todo}
+                    <div class="row">
+                        <hr/>
+                        <div class="col-md-8">
+                            <h4><s n:tag-if="$todo->status">{$todo->title}</s></h4>
+                        </div>
+                        <div class="col-md-4">
+                            <a href="{url /todo/edit/$todo->id }" class="btn btn-success">完成</a>
+                            <form action="{url /todo/destroy/$todo->id }" method="POST" style="display: inline;">
+                                <button type="submit" class="btn btn-danger">删除</button>
+                            </form>
+                        </div>
+                    </div>
+                    {/foreach}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{/block}
