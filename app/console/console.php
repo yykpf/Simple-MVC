@@ -1,11 +1,12 @@
 <?php
 
-# 判断访问来源
-if (php_sapi_name() !== 'cli')
-    exit('nedd cli environment !');
+use Inhere\Console\IO\Input;
+use Inhere\Console\IO\Output;
 
-#获取参数，第一为控制器，第二个为方法，第0个为调用的文件路径
-$c = $argv[1];
+# 判断访问来源
+if (php_sapi_name() !== 'cli') {
+    exit('need cli environment !');
+}
 
 # 定义全局常量
 define('APP_ROOT',dirname(__DIR__));
@@ -13,15 +14,22 @@ define('APP_ROOT',dirname(__DIR__));
 # 引入自动加载
 require  '../../vendor/autoload.php';
 
-# 命令行路径
-$commandClass = '\app\console\command\\'.ucfirst($c).'Command';
+$meta   = [
+    'name'    => 'My Console App',
+    'version' => '1.0.2',
+];
+$input  = new Input;
+$output = new Output;
+// 通常无需传入 $input $output ，会自动创建
+$app = new \Inhere\Console\Application($meta, $input, $output);
 
-// 判断文件是否存在
-if (!class_exists($commandClass))
-    exit('command '.$commandClass.' not find');
+// add command routes
+$app->command('demo', function (Input $in, Output $out) {
+    $cmd = $in->getCommand();
 
-//实例化类
-$controller = new $commandClass();
+    $out->info('hello, this is a test command: ' . $cmd);
+});
 
-//调用exec默认方法
-$controller->exec();
+require __DIR__ . '/commands.php';
+// run
+$app->run();

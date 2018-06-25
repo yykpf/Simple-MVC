@@ -2,7 +2,8 @@
     "require": {
         "lox/pheasant": "dev-master",
         "latte/latte": "^2.4",
-        "altorouter/altorouter": "^1.2"
+        "altorouter/altorouter": "^1.2",
+        "inhere/console": "dev-master"
     },
     "autoload": {
         "psr-4": {

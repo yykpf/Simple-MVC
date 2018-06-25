@@ -41,7 +41,8 @@ mymvc 基于Composer的轻量级PHP应用框架
  **注意：mymvc这个用户需要有全部的数据库操作权限！**
 
 5. 命令行模式
-    在console目录下执行 php console.php Migrate 生成需要的数据库(默认todo)
+    在console目录下执行 php console.php console-migrate 生成需要的数据库(默认todo)
+    console-migrate 对应 MigrateCommand.php文件下的 $name
 6. 访问：http://my.mvc.com/todo/index  可以执行CRUD的各种操作。
 
 
@@ -51,4 +52,4 @@ mymvc 基于Composer的轻量级PHP应用框架
  配置参考 <http://altorouter.com/usage/mapping-routes.html>
 2. 模版引擎参考 <https://latte.nette.org/>
 3. ORM的使用参考 <https://github.com/lox/pheasant>
-
+4. console命令参考 <https://github.com/inhere/php-console>

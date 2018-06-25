@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "767739504832accd3409c2be8c3a490d",
+    "content-hash": "2cf9770ce036c1a5259b0c5c7b43e5b9",
     "packages": [
         {
             "name": "altorouter/altorouter",
@@ -62,8 +62,62 @@
             "time": "2015-11-30T00:47:43+00:00"
         },
         {
+            "name": "inhere/console",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/inhere/php-console.git",
+                "reference": "ad0690003c42ee206a05cde97253a417fb61f2ba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/inhere/php-console/ad0690003c42ee206a05cde97253a417fb61f2ba.zip",
+                "reference": "ad0690003c42ee206a05cde97253a417fb61f2ba",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0",
+                "toolkit/cli-utils": "~1.0",
+                "toolkit/sys-utils": "~1.0"
+            },
+            "suggest": {
+                "padraic/phar-updater": "A thing to make PHAR self-updating easy and secure.",
+                "symfony/process": "php process operation",
+                "text/template": "Single-Class string template engine for PHP5/7 supporting if/loops/filters"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Inhere\\Console\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "inhere",
+                    "email": "in.798@qq.com",
+                    "homepage": "http://www.yzone.net/"
+                }
+            ],
+            "description": "a php console library, provide console argument parse, console controller/command run, color style, user interactive, information show.",
+            "homepage": "https://github.com/inhere/php-console",
+            "keywords": [
+                "cli",
+                "command",
+                "command-line",
+                "console",
+                "console-application",
+                "console-color",
+                "library"
+            ],
+            "time": "2018-06-13T16:12:38+00:00"
+        },
+        {
             "name": "latte/latte",
-            "version": "v2.4.8",
+            "version": "v2.4.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/latte.git",
@@ -187,13 +241,110 @@
                 "orm"
             ],
             "time": "2018-01-30T19:36:36+00:00"
+        },
+        {
+            "name": "toolkit/cli-utils",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-toolkit/cli-utils.git",
+                "reference": "a59b1e1d9422c44306ae9052b3638c03fbd2ed3a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/php-toolkit/cli-utils/a59b1e1d9422c44306ae9052b3638c03fbd2ed3a.zip",
+                "reference": "a59b1e1d9422c44306ae9052b3638c03fbd2ed3a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">7.0.0"
+            },
+            "suggest": {
+                "inhere/console": "a lightweight php console application library.",
+                "inhere/php-validate": "Very lightweight data validate tool",
+                "inhere/simple-print-tool": "Very lightweight data printing tools"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Toolkit\\Cli\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "inhere",
+                    "email": "in.798@qq.com",
+                    "homepage": "http://www.yzone.net/"
+                }
+            ],
+            "description": "some cli tool library of the php",
+            "homepage": "https://github.com/php-toolkit/cli-utils",
+            "keywords": [
+                "library",
+                "php",
+                "tool"
+            ],
+            "time": "2018-05-07T15:32:05+00:00"
+        },
+        {
+            "name": "toolkit/sys-utils",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-toolkit/sys-utils.git",
+                "reference": "cf0ebbdcc4d3f0a4fc85849b395326e73dbf3e25"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://files.phpcomposer.com/files/php-toolkit/sys-utils/cf0ebbdcc4d3f0a4fc85849b395326e73dbf3e25.zip",
+                "reference": "cf0ebbdcc4d3f0a4fc85849b395326e73dbf3e25",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0"
+            },
+            "suggest": {
+                "inhere/console": "a lightweight php console application library.",
+                "inhere/php-validate": "Very lightweight data validate tool",
+                "inhere/simple-print-tool": "Very lightweight data printing tools"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Toolkit\\Sys\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "inhere",
+                    "email": "in.798@qq.com",
+                    "homepage": "http://www.yzone.net/"
+                }
+            ],
+            "description": "some system tool library of the php",
+            "homepage": "https://github.com/php-toolkit/sys-utils",
+            "keywords": [
+                "library",
+                "php",
+                "tool"
+            ],
+            "time": "2018-05-07T15:13:04+00:00"
         }
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "stability-flags": {
-        "lox/pheasant": 20
+        "lox/pheasant": 20,
+        "inhere/console": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
