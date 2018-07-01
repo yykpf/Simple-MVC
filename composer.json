@@ -3,11 +3,18 @@
         "lox/pheasant": "dev-master",
         "latte/latte": "^2.4",
         "altorouter/altorouter": "^1.2",
-        "inhere/console": "dev-master"
+        "inhere/console": "dev-master",
+        "monolog/monolog": "^2.0@dev"
     },
     "autoload": {
         "psr-4": {
             "app\\":"app/"
+        }
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://packagist.phpcomposer.com"
         }
     },
     "minimum-stability":"dev"

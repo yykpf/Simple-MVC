@@ -15,8 +15,13 @@ class BaseController
         $this->initConfig();
         $this->initDb();
         $this->initTpl();
+        $this->initLog();
     }
-
+    // 初始化日志信息
+    private function initLog()
+    {
+        require  APP_ROOT.'/common/functions.php';
+    }
     // 初始化配置文件
     private function initConfig()
     {

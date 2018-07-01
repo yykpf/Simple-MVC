@@ -1,7 +1,7 @@
 <?php
 
 #判断PHP版本
-if (version_compare(PHP_VERSION, '5.6.0', '<')) die('require PHP > 5.6.0 !');
+if (version_compare(PHP_VERSION, '5.7.0', '<')) die('require PHP > 5.7.0 !');
 
 #初始化时区
 date_default_timezone_set('Asia/Shanghai');
