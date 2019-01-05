@@ -7,6 +7,9 @@
         "monolog/monolog": "^2.0@dev"
     },
     "autoload": {
+        "files": [
+            "app/common/functions.php"
+        ],
         "psr-4": {
             "app\\":"app/"
         }

@@ -2,7 +2,7 @@ mymvc 基于Composer的轻量级PHP应用框架
 =======================================
 - 基于composer的包管理器
 - 路由规则灵活，可随意自定义路由规则
-- 包含默认路由：controller/model/arg1/arg2...
+- 包含默认路由：controller/action/arg1/arg2...
 - 轻量级的ORM ，轻松实现CRUD
 - 轻量而强大的模版引擎，安全过滤各种有...
 - 配置文件就是PHP数组，基本无配置
@@ -11,29 +11,50 @@ mymvc 基于Composer的轻量级PHP应用框架
 
 基本使用
 ---------------------------------
- 1. composer create-project yykpf/Simple-MVC  mymvc
- 2. 编辑 Apache下的httpd-vhost.conf文件，添加如下内容：
+1. composer create-project yykpf/Simple-MVC  mymvc
+2. 编辑 httpd-vhost.conf文件
+    1)、Apache下：
+        **注意以下的目录改成自己对应的本地目录！**
 
- **注意以下的目录改成自己对应的本地目录！**
+         ```apache
 
-     ```apache
+        <Directory "D:/demos/myMVC/app/web">
+             Options Indexes FollowSymLinks Includes ExecCGI
+             AllowOverride All
+             Require all granted
+         </Directory>
 
-    <Directory "D:/demos/myMVC/app/web">
-         Options Indexes FollowSymLinks Includes ExecCGI
-         AllowOverride All
-         Require all granted
-     </Directory>
+         <VirtualHost *:80>
+             ServerAdmin webmaster@my.com
+             DocumentRoot "D:/demos/myMVC/app/web"
+             ServerName my.mvc.com
+             ErrorLog "logs/my.mvc.com.com-error.log"
+             CustomLog "logs/my.mvc.com-access.log" common
+         </VirtualHost>
+        ```
+    2)、Nginx下：
+        ```nginx
+        server {
+                listen       80;
+                server_name  simplemvc.com;
+                root   "D:/demos/myMVC/app/web";
+                index  index.html index.htm index.php;
+                location / {
+                    try_files $uri /index.php;
+                }
+                location ~ \.php(.*)$ {
+                    fastcgi_pass   127.0.0.1:9000;
+                    fastcgi_index  index.php;
+                    fastcgi_split_path_info  ^((?U).+\.php)(/?.+)$;
+                    fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+                    fastcgi_param  PATH_INFO  $fastcgi_path_info;
+                    fastcgi_param  PATH_TRANSLATED  $document_root$fastcgi_path_info;
+                    include        fastcgi_params;
+                }
+        }
+        ```
 
-     <VirtualHost *:80>
-         ServerAdmin webmaster@my.com
-         DocumentRoot "D:/demos/myMVC/app/web"
-         ServerName my.mvc.com
-         ErrorLog "logs/my.mvc.com.com-error.log"
-         CustomLog "logs/my.mvc.com-access.log" common
-     </VirtualHost>
- ```
-
-3. 启动Apache和MySQL
+3. 启动Apache|Nginx和MySQL
 4. 在MySQL中创建一个数据库mydb，用户名：mymvc， 密码：123456。
 当然了，如果本地已经有能用的数据库，那么可以去修改config/db.php中的配置即可。
 普通配置文件config/base.php。
