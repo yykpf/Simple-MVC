@@ -33,6 +33,7 @@ mymvc 基于Composer的轻量级PHP应用框架
          </VirtualHost>
         ```
     2)、Nginx下：
+    
         ```nginx
         server {
                 listen       80;
